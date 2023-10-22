@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Document</title>
-</head>
-
-<body>
-
-</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>
 
@@ -20,7 +10,7 @@ function conn_db()
 {
     try {
         //if not working, change '3306' to your mysql port
-        return new PDO('mysql:host=localhost:3307;dbname=pointOfSale', 'root', '');
+        return new PDO('mysql:host=localhost:3306;dbname=pointOfSale', 'root', '');
     } catch (PDOException $ex) {
         echo "Connection Error: ", $ex->getMessage();
     }
@@ -46,20 +36,9 @@ function add_data($menu_name, $menu_desc, $price)
                 }
             });
         </script>";
-    } else {
-        // Error - Display SweetAlert
-        echo "<script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Menu item not added',
-            });
-        </script>";
     }
-
     $db = null;
 }
-
 
 // Retrieve 
 function view_data()
@@ -107,17 +86,7 @@ function update_data($menu_name, $menu_desc, $price, $menu_id)
                 }
             });
         </script>";
-    } else {
-        // Error - Display SweetAlert
-        echo "<script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Menu item not updated',
-            });
-        </script>";
     }
-
     $db = null;
 }
 
@@ -141,20 +110,9 @@ function delete_data($id)
                 }
             });
         </script>";
-    } else {
-        // Error - Display SweetAlert
-        echo "<script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Menu item not deleted',
-            });
-        </script>";
     }
-
     $db = null;
 }
-
 
 //Search
 function search_data($menu_id)
